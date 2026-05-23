@@ -52,6 +52,8 @@ export default function AuthPage() {
       setError(
         message.toLowerCase().includes('email not confirmed')
           ? 'This email is not verified yet. Please open the verification link from Supabase, or resend it below.'
+          : message.toLowerCase().includes('failed to fetch')
+          ? 'Could not reach Supabase from this deployed app. Please check that the Supabase project is active and that the Vercel URL is added to Supabase Auth redirect URLs.'
           : message
       );
     } finally {
